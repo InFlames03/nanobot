@@ -10,6 +10,7 @@ parameters = {
 	["reddit"]: "[%s](https://reddit.com/u/%s)\n"
 	["instagram"]: "[%s](https://www.instagram.com/%s)\n"
 	["myanimelist"]: "[%s](http://www.myanimelist.net/profile/%s)\n"
+	["waifu"]: "%s\n"
 }
 patterns = {
 	"^[#!/](me)$"
