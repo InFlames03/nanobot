@@ -8,7 +8,7 @@ _ =
   plugs: {
     "admin"
     "anime"
-    "greeting"
+    "welcome"
     "help"
     "lastfm"
     "etc"
