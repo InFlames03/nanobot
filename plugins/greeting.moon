@@ -1,8 +1,8 @@
 greetings =
-	"Hi `%s` !": "[Hh]i #{bot_first_name}"
-	"Bye `%s` !": "[Bb]ye #{bot_first_name}"
-	"Bye `%s` !": "[Gg]oodbye #{bot_first_name}"
-	"Yo `%s` !": "[Yy]o #{bot_first_name}"
+	"Hi `%s` !": "^[Hh]i #{bot_first_name}"
+	"Bye `%s` !": "^[Bb]ye #{bot_first_name}"
+	"Goodbye `%s` !": "^[Gg]oodbye #{bot_first_name}"
+	"Yo `%s` !": "^[Yy]o #{bot_first_name}"
 	"Hi `%s` !
 I'm `#{bot_first_name}`
 A multi purpose Telegram bot based on

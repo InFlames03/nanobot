@@ -1,0 +1,13 @@
+message = ""
+run = (msg,matches) ->
+  if matches[1] ==
+    --stuff
+  return message
+
+return {
+  description: "Anti-Spam plugin that intergrates with teleseed"
+  usage: "No commands :)"
+  patterns: {
+  }
+  :run
+}

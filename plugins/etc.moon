@@ -1,16 +1,17 @@
+message = ""
 run = (msg,matches) ->
   if matches[1] == "lenny"
     print
     message = "( ͡° ͜ʖ ͡°)"
-    return message
   elseif matches[1] == "shrug"
     print
     message = "¯\_(ツ)_/¯"
-    return message
   elseif matches[1] == "classy"
     print
     message = "┌─┐\n┴─┴ \n͡° ͜ʖ ͡ರೃ"
-    return message
+  elseif matches[1] == "look"
+    telegram!\sendMessage msg.chat.id, "ಠ_ಠ", false , false , true
+  return message
 
 return {
   description: "*( ͡° ͜ʖ ͡°)*"
@@ -21,8 +22,9 @@ return {
   "[!/](shrug)$",
   "^[!/]shrug +(.+)$",
   "[!/](classy)$",
-  "^[!/]classy +(.+)$"
+  "^[!/]classy +(.+)$",
+  "[!/](look)$",
+  "^[!/]look +(.+)$"
   }
   :run
 }
-

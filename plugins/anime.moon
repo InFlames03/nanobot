@@ -12,6 +12,8 @@ anime = (msg,anime) ->
 *Episodes*: #{jdat[1].episode_count}
 *Status*: "
 	message ..= "#{jdat[1].status}
+*Aired*: "
+	message ..= "#{string.sub(jdat[1].started_airing,0,4)}
 *Genres*: "
 	for i = 1,#jdat[1].genres
 			if i == #jdat[1].genres
@@ -20,17 +22,15 @@ anime = (msg,anime) ->
 				message ..= "#{jdat[1].genres[i].name}, "
 
 	if jdat[1].age_rating
-			message ..= "\n*Age rating:* #{jdat[1].age_rating}"
+			message ..= "\n*Rating:* #{jdat[1].age_rating}"
 
-	message ..= "\n*Rate: * #{string.sub(jdat[1].community_rating,0,4)}"
-	message ..= "\n\n`#{string.sub(jdat[1].synopsis, 1 , 300)}`\n"
-    if jdat[1].started_airing and jdat[1].finished_airing
-      message ..= "\n#{jdat[1].started_airing} *-* #{jdat[1].finished_airing}"
-
-      if msg.chat.type == "inline"
-        block = "[#{inline_article_block "#{jdat[1].title}", "#{message}", "Markdown", true, "Episodes: #{jdat[1].episode_count}"}]"
-        telegram!\sendInline msg.id, block
-        return
+	message ..= "\n*Score: * #{string.sub(jdat[1].community_rating,0,4)}"
+	message ..= "\n\n`#{jdat[1].synopsis}`\n"
+      
+	if msg.chat.type == "inline"
+        	block = "[#{inline_article_block "#{jdat[1].title}", "#{message}", "Markdown", true, "Episodes: #{jdat[1].episode_count}"}]"
+        	telegram!\sendInline msg.id, block
+        	return
 
     return message
 
@@ -94,13 +94,11 @@ Will search for query
 Will send random anime pic
 ]]
   patterns: {
-   "^[!/#](anime) (search) (.*)"
-   "^[!/#](anime) (pic) (.*)"
-   "^[!/#](anime) (pic)$"
+   "^[!/#](anime)(search) (.*)"
+   "^[!/#](anime)(pic) (.*)"
+   "^[!/#](anime)(pic)$"
    --Inline
-   "^###inline[!/#](anime) (search) (.*)"
-   "^###inline[!/#](anime) (pic) (.*)"
-   "^###inline[!/#](anime) (pic)$"
+   "^###inline[!/#](anime)(search) (.*)"
   }
   :run
 }
